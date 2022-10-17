@@ -61,5 +61,6 @@ gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-gem "pg", "~> 1.4"
+group :production do
+  gem 'pg', "~> 1.4"
 end
