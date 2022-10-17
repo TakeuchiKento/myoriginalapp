@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Musiclike</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<header>
+    <h1>MUSIC LIKE</h1>
+    </header>
+    <main>
+    <%= yield %>
+    </main>
+</header>
+<div class="chat-room">
+　  <h1>チャットグループ一覧</h1>
+    <div class="room-search">
+        
+        <div class="room-new">
+            <%= link_to 'グループ作成', new_room_path %>
+        </div>
+
+        <% if @room_joining == [] %>
+            <%= @room_lists_none %>
+        <% else %>
+            <div class="room-list">
+                <ul class="room-list-table">
+                    <% @room_lists.each do |list| %>
+                        <% if list.user_ids.include?(current_user.id) %>
+                            <li class="room-list-table-each-room">
+                                <%= link_to "/rooms/#{list.id}" do %>
+                                    <%= list.name %>(<%= list.user_ids.count %>)
+                                    <%= link_to '編集', edit_room_path(list.id), method: :get %>
+                                    <%= button_to '削除',room_path(list.id), method: :delete %>
+                                <% end %>
+                            </li>
+                        <% end %>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+
+    </div>
+    <%= link_to 'トップページに戻る', posts_path %>
+</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+* {
+    padding: 0;
+    margin: 0;
+    }
+    
+    head {
+        font-family: 'Text Me One', sans-serif;
+    }  
+    
+    body {
+        font-family: 'Text Me One', sans-serif;
+        background-color:#0D1626;
+        }
+    
+    header {
+        background-color: #3a3a3a;
+        height: 80px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    header a {
+        color: black; 
+        text-decoration: none; 
+    }
+    
+    header h1 {
+        color: black;
+        margin-left: 20px;
+    }
+    
+    .header-list {
+        display: flex;
+        align-items: center;
+    }
+        
+        header ul {
+            display: flex;
+        }
+        
+        header li {
+            list-style: none;
+            margin-right: 40px;
+        }
+    
+    .header-nav {
+        position: fixed;
+        height: 0px;
+        width: 100%;
+      
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      
+      nav {
+        margin-right: 5%;
+      }
+    
+    a {
+        color: black;
+        text-decoration: none;
+    }
+    
+    header a:hover {
+        color: rgb(196, 196, 196);
+        
+    }
+
+.icon_image {
+    width: 10px;
+    height: 10px;
+}
+
+.post_index{
+    font-family:"Yu Gothic Medium", sans-serif;
+}
+
+.myprofile{
+    background-color:rgba(58,58,58,0.6)
+}
+
+.name{
+    position:absolute;
+		top: 150px;
+		left:110px;
+}
+
+.introduction{
+    position:absolute;
+		top: 190px;
+		left:110px;
+}
+
+.mylikemusic{
+    font-family: 'Text Me One', sans-serif;
+}
+
+.index_link{
+    font-family:"Yu Gothic Medium";
+    position:relative;
+    text-align: center;
+    top: 0px;
+}
+.index_link h6{
+    font-weight: 1000;
+}
+.index_link ul {
+    display:-webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.index_link li {
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+.index_link a:hover {
+    color: rgb(196, 196, 196);
+    background-color: rgb(60, 60, 60);
+    
+}
+
+.post li {
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+.post a:hover {
+    color: rgb(196, 196, 196);
+    background-color: rgb(60, 60, 60);
+}
+
+.mylikemusic li {
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mylikemusic a:hover {
+    color: rgb(196, 196, 196);
+    background-color: rgb(60, 60, 60);
+    
+}

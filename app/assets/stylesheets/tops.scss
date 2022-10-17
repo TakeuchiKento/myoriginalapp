@@ -1,0 +1,185 @@
+// Place all the styles related to the tops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+* {
+padding: 0;
+margin: 0;
+}
+
+    
+
+body {
+    font-family:'Text Me One',sans-serif;
+    color:white
+    }
+
+header {
+    background-color: #3a3a3a;
+    height: 80px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: white; 
+    text-decoration: none; 
+}
+
+header h1 {
+    color: white;
+    margin-left: 20px;
+}
+
+.header-list {
+    display: flex;
+    align-items: center;
+}
+    
+    header ul {
+        display: flex;
+    }
+    
+    header li {
+        list-style: none;
+        margin-right: 40px;
+    }
+
+.header-nav {
+    position: fixed;
+    height: 0px;
+    width: 100%;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  nav {
+    margin-right: 5%;
+  }
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: rgb(196, 196, 196);
+    
+}
+
+.sample {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    z-index: -1;
+}
+.sample li {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
+    opacity: 0;
+    -webkit-animation: anime 40s linear 0s infinite ;
+    animation: anime 40s linear 0s infinite ;
+}
+.sample li:nth-child(1) { 
+    background-image: url(nomusicnolife.jpg) 
+}
+.sample li:nth-child(2) {
+    background-image: url(hurtmusic.jpg);
+    -webkit-animation-delay: 10s;
+    animation-delay: 10s;
+    background-size:cover;
+    
+}
+.sample li:nth-child(3) {
+    background-image: url(boymusic.jpg);
+    -webkit-animation-delay: 20s;
+    animation-delay: 20s;
+    background-size:cover;
+}
+.sample li:nth-child(4) {
+    background-image: url(huramusic.jpg);
+    -webkit-animation-delay: 30s;
+    animation-delay: 30s;
+}
+@-webkit-keyframes anime { 
+    0% {
+        -webkit-animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    10% {
+        -webkit-transform: scale(1.1);
+        opacity: 1;
+    }
+    40% {
+        -webkit-transform: scale(1.2);
+            -webkit-animation-timing-function: ease-out;
+        opacity: 1;
+    }
+    50% {
+        -webkit-transform: scale(1.3);
+        opacity: 0;
+    }
+    100% { opacity: 0 }
+}
+@keyframes anime { 
+    0% {
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    10% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    40% {
+        transform: scale(1.2);
+            animation-timing-function: ease-out;
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+    100% { opacity: 0 }
+}
+
+.topmessage{
+    font-family:"Yu Gothic Medium";
+    position:relative;
+    text-align: center;
+    top: 100px;
+}
+.topmessage h1{
+    font-weight: 1000;
+}
+.topmessage ul {
+    position:relative;
+    text-align: center;
+    top: 0px;
+    display: flex;
+}
+
+.topmessage li {
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+.topmessage a:hover {
+    color: rgb(196, 196, 196);
+    background-color: rgb(60, 60, 60);
+    
+}
+

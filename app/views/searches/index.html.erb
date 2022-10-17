@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Musiclike</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<header>
+    <h1>MUSIC LIKE</h1>
+    <div class="header-list">
+    <ul>
+        <li><%= link_to 'ログアウト', destroy_user_session_path,  {method: :delete, class:"header-list"}%></li>
+        <%= javascript_include_tag 'post', 'data-turbolinks-track': 'reload' %>
+    </ul>
+    </div>
+    <main>
+    <%= yield %>
+    </main>
+</header>
+
+<div class="search_index">
+<h2>検索結果<h2>
+
+<div class="profile">
+<table class="table table-hover table-inverse">
+    <!--検索対象モデルがUserの時 -->
+  <% if @range == "User" %>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.image %></td>
+          <p><a href="/users/<%= user.id %>"><%= user.name %>さん</a></p>
+          <td><%= user.introduction %></td>
+          <p><%= user.post.artist %></p>
+          <p><%= user.post.song %></p>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+    <tbody>
+    <% @posts.each do |post| %>
+      <div class="post">
+      <h4>Profile<h4>
+      <tr>
+      <div class='userprofile'>
+      <img src=<%= post.user.image %> class = "icon_image">
+        <name>
+          <h4><strong><a href="/users/<%= post.user.id %>"><%= post.user.name %>さん</a></strong><h4>
+        </name>
+        <introduction>
+          <h5><%= post.user.introduction %></h5>
+        </introduction>
+      </div>
+        <div class='likemusic'>
+        <div class='mylikemusic'>
+          <h4>LIKE MUSIC<h4>
+        </div>
+        <div class='mylikemusic2'>
+          <%= post.artist %><br>
+          <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="150" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com<%= post.song %>"></iframe>
+        </div>
+      </tr>
+        </div>
+      </div>
+    <% end %>
+  </tbody>
+  <% end %>
+</table>
+</div>
+
+<%= link_to 'トップページに戻る', posts_path %>
+</div>
+</body>
+</html>

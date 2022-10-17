@@ -1,0 +1,118 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+* {
+    padding: 0;
+    margin: 0;
+    }
+    
+        
+    
+    body {
+        font-family: 'Text Me One', sans-serif;
+        }
+    
+    header {
+        background-color: #3a3a3a;
+        height: 80px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    header a {
+        color: white; 
+        text-decoration: none; 
+    }
+    
+    header h1 {
+        color: white;
+        margin-left: 20px;
+    }
+    
+    .header-list {
+        display: flex;
+        align-items: center;
+    }
+        
+        header ul {
+            display: flex;
+        }
+        
+        header li {
+            list-style: none;
+            margin-right: 40px;
+        }
+    
+    .header-nav {
+        position: fixed;
+        height: 0px;
+        width: 100%;
+      
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      
+      nav {
+        margin-right: 5%;
+      }
+    
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    header a:hover {
+        color: rgb(196, 196, 196);
+        
+    }
+
+.icon_image {
+    width: 100px;
+    height: 100px;
+}
+
+.user_show{
+    font-family:"Yu Gothic Medium", sans-serif;
+}
+
+.name{
+    position:absolute;
+		top: 150px;
+		left:110px;
+}
+
+.introduction{
+    position:absolute;
+		top: 190px;
+		left:110px;
+}
+
+.user_edit{
+    font-family:"Yu Gothic Medium", sans-serif;
+}
+
+.userprofile{
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+}
+
+.userprofile name{
+    position:absolute;
+        top: 0px;
+        left:110px;
+}
+
+.userprofile introduction{
+    position:absolute;
+        top: 30px;
+        left:110px;
+}
+
+.userpage{
+    font-family:"Yu Gothic Medium", sans-serif;
+}

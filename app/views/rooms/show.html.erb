@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Musiclike</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<header>
+    <h1>MUSIC LIKE</h1>
+    </header>
+    <main>
+    <%= yield %>
+    </main>
+</header>
+
+<div class="room-show">
+    <div class="show-room-chat-back">
+        <span class="room-show-room-chat-back">
+            <%= link_to rooms_path do %>
+                ＜
+            <% end %>
+        </span>
+    </div>
+
+    <div class="chat-room-show-talk">
+        <h1>グループチャット</h1>
+
+
+
+<hr>
+<% if @letters.present? %>
+  <% @letters.each do |m| %>
+    <strong><%= m.content %></strong>
+    <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.name %>さん</a></strong></small>
+    <hr>
+  <% end %>
+<% else %>
+  <h3 class="text-center">メッセージはまだありません</h3>
+<% end %>
+
+<%= form_for @letter do |f| %>
+  <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
+  <%= f.hidden_field :room_id, :value => @room.id %>
+  <br>
+  <%= f.submit "投稿する" %>
+<% end %>
+
+<%= link_to "ユーザー一覧に戻る", users_path %>
+    </div>
+</div>
+</body>
+</html>

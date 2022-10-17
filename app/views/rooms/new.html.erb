@@ -1,0 +1,12 @@
+<h1>新規作成</h1>
+
+<%= form_for @room do |f| %>
+  <div class="room-new-form">
+    <div class="gtoup-new-form-name">
+      <%= f.label :name, 'グループ名' %>
+      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.collection_check_boxes :user_ids, User.all, :id, :name %>
+    </div>
+    <%= f.submit '新規作成' %>
+  </div>
+<% end %>

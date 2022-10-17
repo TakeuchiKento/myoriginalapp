@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Musiclike</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<header>
+    <h1>MUSIC LIKE</h1>
+    <div class="header-list">
+    <ul>
+        <li><%= link_to "ログイン", posts_path %></li>
+        <li><%= link_to "新規登録", new_user_registration_path %></li>
+    </ul>
+    </div>
+    </header>
+    <ul class="sample">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    </ul>
+    <div class="topmessage">
+    <h1>「好き」を共有する</h1>
+    <br>
+    <br>
+    <h4>通勤通学をしながら<br>
+    作業をしながら<br>
+    帰りながら<br>
+    ・・・<br>
+    誰のそばにも音楽があります<br>
+    自分の「好き」を共有しませんか<br>
+    誰かの「好き」を知ってみませんか<br>
+    そんな「好き」の共有のために<br>
+    MUSICLIKEを始めてみませんか</h4>
+    <ul>
+        <li><h2><%= link_to "ログイン", posts_path %></li>
+        <li><h2><%= link_to "新規登録", new_user_registration_path %></li>
+    </ul>
+    </div>
+    <main>
+    <%= yield %>
+    </main>
+</header>
+</body>
+</html>
+
+

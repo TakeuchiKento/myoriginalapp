@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Musiclike</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<header>
+    <h1>MUSIC LIKE</h1>
+    </header>
+    <main>
+    <%= yield %>
+    </main>
+</header>
+<div class="cover-user-index">
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1 class="font-weight-normal mt-5 mb-5">フォロワー一覧</h1>
+        </div>
+        <div class="row justify-content-center">
+            <% @users.each do |user| %>
+                <div class="one-post card w-100">
+                <p><a href="/users/<%= user.id %>"><%= image_tag user.image_url, size: "100x100" if user.image? %><%= user.name %>さん</a><%= user.introduction %></p>
+            <% end %>
+        </div>
+    </div>
+</div>
+<%= link_to "トップページへ", posts_path %>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Musiclike</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<header>
+    <h1>MUSIC LIKE</h1>
+    </header>
+    <main>
+    <%= yield %>
+    </main>
+</header>
+<h1>DM</h1>
+
+<h4>参加者</h4>
+<% @entries.each do |e| %>
+  <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.email%>さん</a></strong></h5>
+<% end %>
+
+<hr>
+<% if @messages.present? %>
+  <% @messages.each do |m| %>
+    <strong><%= m.body %></strong>
+    <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.email %>さん</a></strong></small>
+    <hr>
+  <% end %>
+<% else %>
+  <h3 class="text-center">メッセージはまだありません</h3>
+<% end %>
+
+<%= form_for @message do |f| %>
+  <%= f.text_field :body, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
+  <%= f.hidden_field :dmroom_id, :value => @dmroom.id %>
+  <br>
+  <%= f.submit "投稿する" %>
+<% end %>
+
+<%= link_to "フォロー一覧に戻る",follows_user_path(current_user.id)  %>
+
+</body>
+</html>
