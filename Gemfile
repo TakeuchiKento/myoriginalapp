@@ -62,7 +62,4 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem "pg", "~> 1.4"
-
-group :production do
-  gem 'pg'
 end
