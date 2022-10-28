@@ -13,25 +13,36 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-
+<%= stylesheet_link_tag 'rooms', :media => "all"%>
 <body>
 <header>
     <h1>MUSIC LIKE</h1>
+    <div class="header-list">
+    <ul>
+        <li><%= link_to 'ログアウト', destroy_user_session_path,  {method: :delete, class:"header-list"}%></li>
+        <%= javascript_include_tag 'post', 'data-turbolinks-track': 'reload' %>
+    </ul>
+    </div>
     </header>
     <main>
     <%= yield %>
     </main>
 </header>
+
+<div class="room_index">
 <div class="chat-room">
 　  <h1>チャットグループ一覧</h1>
+<br>
     <div class="room-search">
         
         <div class="room-new">
-            <%= link_to 'グループ作成', new_room_path %>
+            <ul>
+            <li><h3><%= link_to 'グループを作成する', new_room_path %><h3></li>
+            </ul>
         </div>
-
+<br>
         <% if @room_joining == [] %>
-            <%= @room_lists_none %>
+            <h4><%= @room_lists_none %><h4>
         <% else %>
             <div class="room-list">
                 <ul class="room-list-table">
@@ -39,9 +50,10 @@
                         <% if list.user_ids.include?(current_user.id) %>
                             <li class="room-list-table-each-room">
                                 <%= link_to "/rooms/#{list.id}" do %>
-                                    <%= list.name %>(<%= list.user_ids.count %>)
+                                    <h4><li class="item"><%= list.name %>(<%= list.user_ids.count %>)
                                     <%= link_to '編集', edit_room_path(list.id), method: :get %>
-                                    <%= button_to '削除',room_path(list.id), method: :delete %>
+                                    <%= link_to '削除',room_path(list.id), method: :delete %>
+                                    <%= javascript_include_tag 'room', 'data-turbolinks-track': 'reload' %></li><h4>
                                 <% end %>
                             </li>
                         <% end %>
@@ -51,7 +63,9 @@
         <% end %>
 
     </div>
+    <br>
     <%= link_to 'トップページに戻る', posts_path %>
+</div>
 </div>
 </body>
 </html>

@@ -7,7 +7,7 @@ class User < ApplicationRecord
          has_many:posts, dependent: :destroy 
   validates :name, presence: true 
   validates :image, presence: false
-  validates :introduction, length: { maximum: 200 }
+  validates :introduction, length: { maximum: 34 }
 
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy

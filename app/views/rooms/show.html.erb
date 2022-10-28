@@ -13,6 +13,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
+<%= stylesheet_link_tag'rooms', :media => "all"%>
 
 <body>
 <header>
@@ -24,39 +25,81 @@
 </header>
 
 <div class="room-show">
-    <div class="show-room-chat-back">
-        <span class="room-show-room-chat-back">
+<div class="show-group-chat-back">
+        <span class="group-show-group-chat-back">
             <%= link_to rooms_path do %>
                 ＜
             <% end %>
         </span>
     </div>
-
-    <div class="chat-room-show-talk">
-        <h1>グループチャット</h1>
-
+<hr>
+<div class="chat-room-show-talk">
+<div class="groupchat">
+<h2>Group Chat</h2>
+</div>
 
 
 <hr>
+<div class="chatroom">
 <% if @letters.present? %>
   <% @letters.each do |m| %>
-    <strong><%= m.content %></strong>
-    <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.name %>さん</a></strong></small>
-    <hr>
+  <% if current_user.id == m.user_id %>
+    <div class="chat-box">
+      <div class="chat-face">
+      <a href="/users/<%= m.user_id %>"><img src=<%= m.user.image %> class = "icon_image"></a>
+      </div>
+    
+      <div class="chatname">
+      <a href="/users/<%= m.user_id %>"><%= m.user.name %></a>
+      </div>
+    
+      <div class="chat-area">
+        <div class="chat-hukidashi">
+        <%= m.content %>
+        <%= image_tag m.image_url, size: "250x200" if m.image? %>
+        </div>
+      </div>
+      </div>
+  
+
+  <% else %>
+    <div class="chat-box_someone">
+      <div class="chat-face_someone">
+      <a href="/users/<%= m.user_id %>"><img src=<%= m.user.image %> class = "icon_image"></a>
+      </div>
+      <chatname>
+      <strong><a href="/users/<%= m.user_id %>"><%= m.user.name %></a></strong>さん
+      </chatname>
+      <div class="chat-area_someone">
+        <div class="chat-hukidashi_someone">
+        <%= image_tag m.image_url, size: "250x200" if m.image? %>
+        <strong><%= m.content %></strong>
+        </div>
+      </div>
+    </div>
   <% end %>
+<% end %>
+
 <% else %>
   <h3 class="text-center">メッセージはまだありません</h3>
 <% end %>
-
+</div>
+<footer>
+<hr>
+<div class="lettersend">
 <%= form_for @letter do |f| %>
-  <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
+  <%= f.text_area :content, :placeholder => "メッセージを入力して下さい" , :size => "100x2",class:"nyuuryoku" %>
+  
+    <%= f.label :image,"📷" , class: "image_input_btn" %>
+    <%= f.file_field :image, class: "image_form" %>
+  
   <%= f.hidden_field :room_id, :value => @room.id %>
-  <br>
-  <%= f.submit "投稿する" %>
+  <%= f.submit "送信", class: "sousin" %>
 <% end %>
+</div>
+</footer>
 
-<%= link_to "ユーザー一覧に戻る", users_path %>
-    </div>
+</div>
 </div>
 </body>
 </html>

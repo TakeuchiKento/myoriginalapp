@@ -13,10 +13,16 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-
+<%= stylesheet_link_tag 'users', :media => "all"%>
 <body>
 <header>
     <h1>MUSIC LIKE</h1>
+    <div class="header-list">
+    <ul>
+        <li><%= link_to 'ログアウト', destroy_user_session_path,  {method: :delete, class:"header-list"}%></li>
+        <%= javascript_include_tag 'user', 'data-turbolinks-track': 'reload' %>
+    </ul>
+    </div>
     </header>
     <main>
     <%= yield %>
@@ -27,18 +33,22 @@
 <div class="cover-user-index">
     <div class="container">
         <div class="row justify-content-center">
-            <h1 class="font-weight-normal mt-5 mb-5">フォロー一覧</h1>
+            <h2 class="font-weight-normal mt-5 mb-5">
+            <div class="follow">Follow</h2>
+            </div>
+            <hr>
         </div>
         <div class="row justify-content-center">
         <div class="post">
             <% @users.each do |user| %>
                 <div class="userprofile">
-                <p><a href="/users/<%= user.id %>"><img src=<%= user.image %> class = "icon_image">
+                <img src=<%= user.image %> class = "icon_image">
+                <hr>
                 <name>
-                <%= user.name %>さん</a>
+                <h3><strong><a href="/users/<%= user.id %>"><%= user.name %>さん</a></strong><h3>
                 </name>
                 <introduction>
-                <%= user.introduction %></p>
+                <%= user.introduction %>
                 </introduction>
                 </div>
             <% end %>

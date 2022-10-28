@@ -69,3 +69,189 @@
         color: rgb(196, 196, 196);
         
     }
+
+    .room_index{
+        font-family:"Yu Gothic Medium", sans-serif;
+        text-align: center
+    }
+
+    
+
+    .room_index li {
+        list-style: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .room_index a:hover {
+        color: rgb(196, 196, 196);
+        background-color: rgb(60, 60, 60) 
+    }
+
+    .room-list-table-each-room{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        list-style: none;
+    }
+
+    .item{
+        flex-basis: 200px; 
+    }
+
+    
+    /* チャットレイアウト */
+    .dmchat-box {
+        height: auto;
+         /*floatの解除*/
+        margin-bottom: 20px;
+        overflow: hidden;
+        position:relative;
+    }
+
+.dmchat-face {
+    float: right;
+    margin-left: -120px;
+}
+.dmchat-face img{
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px #ddd;
+}
+.dmchatname{
+    position:absolute;
+    right:80px;
+    
+}
+.dmchat-area {
+    width: 100%;
+    float: right;
+    position: relative;
+}
+.dmchat-hukidashi {
+    float: right;
+    padding: 6px 10px;
+    right: 100px;
+    margin-top: 25px;
+    /* border: 1px solid gray; ←削除 */
+    border-radius: 10px;
+    position: relative; /*追記*/
+    background-color: #c0c0c0; /*追記*/
+}
+/* ↓追記↓ */
+.dmchat-hukidashi:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #c0c0c0;
+  -webkit-transform: rotate(145deg);
+  transform: rotate(145deg);
+}
+
+.dmchat-box_someone {
+    height: auto;
+    overflow: hidden; /*floatの解除*/
+    margin-bottom: 20px;
+    position:relative;
+}
+.dmchat-face_someone {
+    float: left;
+    margin-right: -120px;
+}
+.dmchat-face_someone img{
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px #ddd;
+}
+.dmchat-box_someone chatname{
+    position:absolute;
+    left:80px;
+    
+}
+.dmchat-area_someone {
+    width: 100%;
+    float: right;
+}
+.dmchat-hukidashi_someone {
+    display: inline-block; /*コメントの文字数に合わせて可変*/
+    padding: 6px 10px;
+    margin-left: 90px;
+    margin-top: 25px;
+    /* border: 1px solid gray; ←削除 */
+    border-radius: 10px;
+    position: relative; /*追記*/
+    background-color: #6c6c6c; /*追記*/
+}
+/* ↓追記↓ */
+.dmchat-hukidashi_someone:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    left: -19px;
+    border: 8px solid transparent;
+    border-right: 18px solid #6c6c6c;
+    -webkit-transform: rotate(35deg);
+    transform: rotate(35deg);
+}
+
+.lettersend{
+    text-align: center
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #3a3a3a; 
+  }
+
+.dmroom-show{
+    font-family:"Yu Gothic Medium", sans-serif;
+}
+
+.dmsousin{
+    cursor: pointer;
+  border: none;
+  background: #5a5a5a;
+  color: white;
+  outline : none;
+  width: 3.0em;
+  height: 2.2em;
+
+}
+
+.dmimage_input_btn{
+    font-family:"Yu Gothic Medium", sans-serif;
+    
+    background-color: #ffffff;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+  }
+
+  .dmimage_input_btn:hover{
+    color: black;
+    background: #d7d7d7;
+}
+
+  .dmimage_form{
+    display: none;
+  }
+
+  .dmchat-room{
+    background-color:rgba(58,58,58,0.6)
+}   
+
+.directmessage{
+    font-family: 'Text Me One', sans-serif;
+}

@@ -71,12 +71,17 @@
     }
 
 .icon_image {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
 }
 
 .user_show{
     font-family:"Yu Gothic Medium", sans-serif;
+}
+
+.user_show a:hover {
+    color: rgb(196, 196, 196);
+    background-color: rgb(60, 60, 60);
 }
 
 .name{
@@ -103,16 +108,158 @@
 
 .userprofile name{
     position:absolute;
-        top: 0px;
+        top: 35px;
         left:110px;
+        white-space:nowrap
 }
 
 .userprofile introduction{
     position:absolute;
         top: 30px;
-        left:110px;
+        left:0px;
+        white-space:nowrap
 }
 
+.userprofile followbutton{
+    position:absolute;
+        top: 60px;
+        left:0px;
+}
+
+.userprofile dm{
+    position:relative;
+        top: 50px;
+        left:0px;
+}
+
+.userprofile mail{
+    position:relative;
+        top: 30px;
+        left:0px;
+}
+
+.userprofile edit{
+    position:relative;
+        top: 30px;
+        left:0px;
+}
 .userpage{
     font-family:"Yu Gothic Medium", sans-serif;
+    
+}
+
+.login{
+    font-family:"Yu Gothic Medium", sans-serif;
+    text-align: center
+}
+
+.btn-success{
+    font-family:"Yu Gothic Medium", sans-serif;
+    width: 120px;
+    height: 30px;
+    color: black;
+    background-color: #ffffff;
+}
+
+.btn-success:hover{
+    color: black;
+    background: #d7d7d7;
+}
+
+.btn-danger{
+    font-family:"Yu Gothic Medium", sans-serif;
+    width: 120px;
+    height: 30px;
+    color: white;
+    background-color: #626262;
+}
+
+
+.btn-danger:hover{
+    color: white;
+    background: #989898;
+}
+
+.btn-radius {
+    border-radius: 100vh;
+ }
+
+ .btn-danger1{
+    font-family:"Yu Gothic Medium", sans-serif;
+    width: 150px;
+    height: 30px;
+    color: white;
+    background-color: #626262;
+}
+
+.btn-danger1:hover{
+    color: white;
+    background: #989898;
+}
+
+.post{
+    background-color:rgba(58,58,58,0.6)
+}
+
+a.btn--orange {
+    font-family:"Yu Gothic Medium", sans-serif;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    color: black;
+    background-color: #ffffff;
+    position: absolute;
+    top: 180px;
+    left: 240px;
+}
+
+a.btn--orange:hover {
+    color: black;
+    background: #d7d7d7;
+}
+
+a.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+a.btn--circle {
+    border-radius: 50%;
+    line-height: 30px;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+}
+
+.btn--orange2 {
+    font-family:"Yu Gothic Medium", sans-serif;
+    width: 30px;
+    height: 30px;
+    color: black;
+    background-color: #ffffff;
+    position: absolute;
+    top: 177px;
+    left: 240px;
+  }
+  
+.btn--orange2:hover {
+    color: black;
+    background: #d7d7d7;
+  }
+  
+.btn--shadow2 {
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+.btn--circle2 {
+    border-radius: 50%;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+  }
+
+.follow{
+    font-family: 'Text Me One', sans-serif;
 }

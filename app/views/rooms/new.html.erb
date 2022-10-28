@@ -1,12 +1,56 @@
-<h1>新規作成</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Musiclike</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<%= stylesheet_link_tag 'rooms', :media => "all"%>
+<body>
+<header>
+    <h1>MUSIC LIKE</h1>
+    <div class="header-list">
+    <ul>
+        <li><%= link_to 'ログアウト', destroy_user_session_path,  {method: :delete, class:"header-list"}%></li>
+        <%= javascript_include_tag 'post', 'data-turbolinks-track': 'reload' %>
+    </ul>
+    </div>
+    </header>
+    <main>
+    <%= yield %>
+    </main>
+</header>
+
+<div class="show-group-chat-back">
+        <span class="group-show-group-chat-back">
+            <%= link_to rooms_path do %>
+                ＜
+            <% end %>
+        </span>
+</div>
+<div class="room_index">
+<h2>新規作成</h2>
 
 <%= form_for @room do |f| %>
   <div class="room-new-form">
     <div class="gtoup-new-form-name">
-      <%= f.label :name, 'グループ名' %>
-      <%= f.text_field :name, class: 'form-control' %>
-      <%= f.collection_check_boxes :user_ids, User.all, :id, :name %>
+      <h3><%= f.label :name, 'グループ名' %><br>
+      <%= f.text_field :name, class: 'form-control' %><br>
+      追加する人を選ぶ<br>
+      <h4><%= f.collection_check_boxes :user_ids, current_user.following_user, :id, :name %>
     </div>
-    <%= f.submit '新規作成' %>
+    <%= f.submit '新規作成', class:'submit-button' %>
   </div>
 <% end %>
+</div>
+
+</body>
+</html>

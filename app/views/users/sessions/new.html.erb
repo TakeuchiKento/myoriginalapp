@@ -13,7 +13,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-
+<%= stylesheet_link_tag 'users', :media => "all"%>
 <body>
 <header>
     <h1>MUSIC LIKE</h1>
@@ -22,32 +22,35 @@
     <%= yield %>
     </main>
 </header>
+
+<div class="login">
 <h2>ログイン</h2>
 <p>※登録したメールアドレスとパスワードを入力してください。</p>
-
+<br>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <h2>メール </h2><br />
+    メール <br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
+<br>
   <div class="field">
-    <h2>パスワード </h2><br />
+    パスワード <br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <h2>私を覚える</h2>
+      保存する
     </div>
   <% end -%>
-
+<br>
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログインする", class:"btn-success btn-radius" %>
   </div>
 <% end %>
-
+<br>
 <%= render "users/shared/links" %>
+</div>
 </body>
 </html>

@@ -37,6 +37,7 @@ header h1 {
     display: flex;
     align-items: center;
 }
+
     
     header ul {
         display: flex;
@@ -81,6 +82,7 @@ header a:hover {
     background: #000000;
     z-index: -1;
 }
+
 .sample li {
     position: absolute;
     top: 0px;
@@ -91,27 +93,31 @@ header a:hover {
     background-position: 50% 50%;
     background-repeat: none;
     opacity: 0;
-    -webkit-animation: anime 40s linear 0s infinite ;
-    animation: anime 40s linear 0s infinite ;
+    -webkit-animation: anime 40s linear 7s infinite ;
+    animation: anime 40s linear 7s infinite ;
 }
+
+
 .sample li:nth-child(1) { 
-    background-image: url(nomusicnolife.jpg) 
+    background-image: url(no.jpg) 
 }
+
 .sample li:nth-child(2) {
-    background-image: url(hurtmusic.jpg);
-    -webkit-animation-delay: 10s;
-    animation-delay: 10s;
+    background-image: url(hurt.jpg);
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
     background-size:cover;
     
 }
+
 .sample li:nth-child(3) {
-    background-image: url(boymusic.jpg);
-    -webkit-animation-delay: 20s;
-    animation-delay: 20s;
+    background-image: url(boy.jpg);
+    -webkit-animation-delay: 15s;
+    animation-delay: 15s;
     background-size:cover;
 }
 .sample li:nth-child(4) {
-    background-image: url(huramusic.jpg);
+    background-image: url(no2.jpg);
     -webkit-animation-delay: 30s;
     animation-delay: 30s;
 }
@@ -177,9 +183,109 @@ header a:hover {
     margin-left: auto;
     margin-right: auto;
 }
+.topmessage a{
+    position: relative;
+    z-index: 1;
+    padding: 0 10px;
+  }
+
+.topmessage a::before {
+    background: white;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .7s;
+    z-index: -1;
+  }
+
 .topmessage a:hover {
-    color: rgb(196, 196, 196);
-    background-color: rgb(60, 60, 60);
+    color: black
+}
+
+.topmessage a:hover::before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+  }
+
+  .border{
+	position: relative;
+	text-align: center;
+	font-size: 40px;
+    font-weight: 1000;
     
 }
 
+.border:before{
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	width: 0;
+	border-bottom: solid 2px #ffffff;
+	transform: translateX(-50%);
+	animation: border_anim 3s linear forwards;
+}
+
+@keyframes border_anim {
+	0%{
+		width: 0%;
+	}
+	100%{
+		width: 35%;
+	}
+}
+
+.fadein {
+    opacity: 0;
+    animation: fadein 6s ease forwards;
+}
+@keyframes fadein {
+    100% {  opacity: 1;}
+}
+ 
+/*以下遅延の指定*/
+.txt01 {animation-delay: 6s;}
+
+.flowing {
+    position: fixed;
+    top: 250px;
+    left: 400px;
+    margin: 0;
+    font-size: 100px;
+    font-weight: bold;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: flowing-anim 5s;
+    
+    
+  }
+  
+  @keyframes flowing-anim {
+   0%{
+       width: 0%;
+     }
+  100%{
+       width: 100%;
+     }
+  }
+
+  .repeat-fadein-out{
+    
+    animation-name: smooth-fadein-out;
+    animation-duration: 1.5s;
+    animation-delay: 5s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes smooth-fadein-out {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+  }

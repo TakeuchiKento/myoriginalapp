@@ -13,7 +13,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-
+<%= stylesheet_link_tag'dmrooms', :media => "all"%>
 <body>
 <header>
     <h1>MUSIC LIKE</h1>
@@ -22,32 +22,85 @@
     <%= yield %>
     </main>
 </header>
-<h1>DM</h1>
 
+<div class="dmroom-show">
+<div class="show-group-chat-back">
+        <span class="group-show-group-chat-back">
+            <%= link_to user_path do %>
+                ＜
+            <% end %>
+        </span>
+    </div>
 <h4>参加者</h4>
 <% @entries.each do |e| %>
-  <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.email%>さん</a></strong></h5>
+  <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.name %>さん</a></strong></h5>
 <% end %>
 
 <hr>
+
+<div class="dmchat-room-show-talk">
+<div class="directmessage">
+<h2>Direct Message</h2>
+</div>
+
+
+<hr>
+<div class="dmchat-room">
 <% if @messages.present? %>
   <% @messages.each do |m| %>
-    <strong><%= m.body %></strong>
-    <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.email %>さん</a></strong></small>
-    <hr>
+  <% if current_user.id == m.user_id %>
+    <div class="dmchat-box">
+      <div class="dmchat-face">
+      <a href="/users/<%= m.user_id %>"><img src=<%= m.user.image %> class = "icon_image"></a>
+      </div>
+      <div class="dmchatname">
+      <a href="/users/<%= m.user_id %>"><%= m.user.name %></a>
+      </div>
+      <div class="dmchat-area">
+        <div class="dmchat-hukidashi">
+        <%= image_tag m.image_url, size: "250x200" if m.image? %>
+        <strong><%= m.body %></strong>
+        </div>
+      </div>
+    </div>
+
+  <% else %>
+    <div class="dmchat-box_someone">
+      <div class="dmchat-face_someone">
+      <a href="/users/<%= m.user_id %>"><img src=<%= m.user.image %> class = "icon_image"></a>
+      </div>
+      <chatname>
+      <strong><a href="/users/<%= m.user_id %>"><%= m.user.name %></a></strong>さん
+      </chatname>
+      <div class="dmchat-area_someone">
+        <div class="dmchat-hukidashi_someone">
+        <%= image_tag m.image_url, size: "250x200" if m.image? %>
+        <strong><%= m.body %></strong>
+        </div>
+      </div>
+    </div>
   <% end %>
+<% end %>
+
 <% else %>
   <h3 class="text-center">メッセージはまだありません</h3>
 <% end %>
-
+</div>
+<footer>
+<hr>
+<div class="lettersend">
 <%= form_for @message do |f| %>
-  <%= f.text_field :body, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
+  <%= f.text_area :body, :placeholder => "メッセージを入力して下さい" , :size => "100x2" %>
+  
+    <%= f.label :image,"📷" , class: "dmimage_input_btn" %>
+    <%= f.file_field :image, class: "image_form" %>
   <%= f.hidden_field :dmroom_id, :value => @dmroom.id %>
-  <br>
-  <%= f.submit "投稿する" %>
+  <%= f.submit "送信", class: "dmsousin" %>
 <% end %>
+</div>
+</footer>
 
-<%= link_to "フォロー一覧に戻る",follows_user_path(current_user.id)  %>
-
+</div>
+</div>
 </body>
 </html>

@@ -74,30 +74,29 @@
         font-family:"Yu Gothic Medium", sans-serif;
     }
 
-.profile{
+    .seprofile{
         background-color:rgba(58,58,58,0.6)
 }
     
 
 
-    .mylikemusic{
+    .semylikemusic{
         font-family: 'Text Me One', sans-serif;
     }
 
-.userprofile{
+.seuserprofile{
+    display: flex;
     position: relative;
     bottom: 0px;
     left: 0px;
 }
 
-.userprofile name{
-    position:absolute;
-        top: 0px;
-        left:110px;
+.seicon{
+
+    margin-left: 0px;
 }
 
-.userprofile introduction{
-    position:absolute;
-        top: 30px;
-        left:0px;
+.userinformation{
+    flex-direction: row;
 }
+

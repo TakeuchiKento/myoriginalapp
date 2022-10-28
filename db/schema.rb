@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_14_070508) do
+ActiveRecord::Schema.define(version: 2022_10_26_121954) do
 
   create_table "chats", force: :cascade do |t|
     t.string "content"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2022_10_14_070508) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
     t.index ["room_id"], name: "index_letters_on_room_id"
     t.index ["user_id"], name: "index_letters_on_user_id"
   end
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_10_14_070508) do
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
     t.index ["dmroom_id"], name: "index_messages_on_dmroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end

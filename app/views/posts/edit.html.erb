@@ -22,18 +22,35 @@
     <%= yield %>
     </main>
 </header>
-
+<br>
+<br>
+<br>
+<div class="new">
 <%= form_for @post do |f| %>
-    <%= f.label :"好きなアーティストを設定" %>
-    <%= f.text_field :artist, :size => 140 %>
+  <div class="field">
+    <h3><%= f.label :"好きなアーティストを設定" %><br><h3>
+    <%= f.text_field :artist, :size => 50 %><br>
+    <h5>ヒント💡<br>
+    正確なアーティスト名を入力するとより多くの人にみつけてもらいやすくなります。</h5>
     <br>
-    <%= f.label :"好きな曲を設定" %>
-    <%= f.text_field :song, :placeholder => "applemusicのリンクを貼り付けてください", :size => 140 %>
-    <%= f.submit "登録する" %>
+    <br>
+    <h3><%= f.label :"好きな曲を設定" %><br><h3>
+    <h5>編集する際は再度下の手順で登録をお願いします。<h5>
+    <%= f.text_field :song, :placeholder => "applemusicのリンクを貼り付けてください", :size => 70 %><br>
+    <h5>ヒント💡<br>
+    1)<apple><a href="https://music.apple.com/jp/browse" target="_blank">Apple Music</a></apple>を開く<br>
+    2)好きな曲を検索<br>
+    3)曲の右にある「・・・」をクリック<br>
+    4)「共有」をクリック<br>
+    5)「リンクをコピー」をクリック<br>
+    6)上に貼り付ける
+  </div>
+  <br>
+  <%= f.submit "登録する", class:"btn-success btn-radius" %>
 <% end %>
-
-
+<br>
 <%= link_to "トップページへ", posts_path %>
 
+</div>
 </body>
 </html>

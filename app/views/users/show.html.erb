@@ -13,7 +13,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-
+<%= stylesheet_link_tag 'users', :media => "all"%>
 <body>
 <header>
     <h1>MUSIC LIKE</h1>
@@ -31,45 +31,55 @@
 
 <div class="user_show">
 
-<div class="myprofile">
-<h1>MY PAGE</h1>
+<div class="userprofile">
+<h2>PROFILE</h2>
 <img src=<%= @user.image %> class = "icon_image">
+<name>
 <h3>名前 : <%= @user.name %>
-<p>メールアドレス : <%= @user.email %></p>
-
+</name>
+<introduction>
 <p>プロフィール : <%= @user.introduction %></p>
+</introduction>
 
 
 <% if current_user.id == @user.id %>
+<mail>
+<p>メールアドレス : <%= @user.email %></p>
+</mail>
+<edit>
   <%= link_to "編集する", edit_user_registration_path %>
+  </edit>
 <% end %>
-
+<followbutton>
 <% if current_user != @user %>
    <% if current_user.following?(@user) %>
-   <%= button_to 'フォロー外す', user_relationships_path(@user.id), method: :delete, class: "btn-sm btn-danger" %>
+   <%= button_to 'フォローを外す', user_relationships_path(@user.id), method: :delete, class: "btn-danger btn-radius" %>
    <% else %>
-   <%= button_to 'フォローする', user_relationships_path(@user.id), method: :POST, class:"btn-sm btn-success" %>
+   <%= button_to 'フォローする', user_relationships_path(@user.id), method: :POST, class:"btn-success btn-radius" %>
    <% end %>
  </p>
 <% end %>
-
-<%= link_to "トップページへ", posts_path %><h3>
+</followbutton>
 </div>
+
+
 
 <% if @user.id == current_user.id %>
 
 <% else %>
     <% if @isDmroom == true %>
-        <p><a href="/dmrooms/<%= @dmroomId %>">チャットへ</a>
+        <p><a href="/dmrooms/<%= @dmroomId %>" class="btn btn--orange btn--circle btn--circle-a btn--shadow"　role="button" aria-disabled="true">✉</a>
     <% else %>
         <%= form_for @dmroom do |f| %>
             <%= fields_for @entry do |e| %>
                 <%= e.hidden_field :user_id, :value=> @user.id %>
             <% end %>
-            <%= f.submit "チャットを始める" %>
+            <%= f.submit "✉", class:'btn2 btn--orange2 btn--circle2 btn--circle-a2 btn--shadow2'  %>
         <% end %>
     <% end %>
 <% end %>
+<br>
+<%= link_to "トップページへ", posts_path %><h3>
 
 
 </div>

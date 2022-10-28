@@ -10,10 +10,11 @@
     <%= csp_meta_tag %>
 
 
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-
+<%= stylesheet_link_tag 'searches', :media => "all"%>
 <body>
 <header>
     <h1>MUSIC LIKE</h1>
@@ -23,6 +24,7 @@
         <%= javascript_include_tag 'post', 'data-turbolinks-track': 'reload' %>
     </ul>
     </div>
+    </header>
     <main>
     <%= yield %>
     </main>
@@ -31,7 +33,7 @@
 <div class="search_index">
 <h2>検索結果<h2>
 
-<div class="profile">
+<div class="seprofile">
 <table class="table table-hover table-inverse">
     <!--検索対象モデルがUserの時 -->
   <% if @range == "User" %>
@@ -51,16 +53,19 @@
     <tbody>
     <% @posts.each do |post| %>
       <div class="post">
-      <h4>Profile<h4>
+      
       <tr>
-      <div class='userprofile'>
-      <img src=<%= post.user.image %> class = "icon_image">
-        <name>
-          <h4><strong><a href="/users/<%= post.user.id %>"><%= post.user.name %>さん</a></strong><h4>
-        </name>
-        <introduction>
-          <h5><%= post.user.introduction %></h5>
-        </introduction>
+      <div class='seuserprofile'>
+      <div class='seicon'>
+      <img src=<%= post.user.image %> class="icon_image" >
+      </div>
+      <div class="userinformation">
+        
+          <h5><p><a href="/users/<%= post.user.id %>"><%= post.user.name %></a>さん</p></h5>
+        
+          <h6><%= post.user.introduction %></h6>
+        
+        </div>
       </div>
         <div class='likemusic'>
         <div class='mylikemusic'>
@@ -74,12 +79,13 @@
         </div>
       </div>
     <% end %>
+    <hr>
   </tbody>
   <% end %>
 </table>
 </div>
 
-<%= link_to 'トップページに戻る', posts_path %>
+<h4><%= link_to 'トップページに戻る', posts_path %>
 </div>
 </body>
 </html>

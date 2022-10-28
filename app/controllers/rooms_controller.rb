@@ -15,6 +15,7 @@ class RoomsController < ApplicationController
     def create
         @room = Room.new(room_params)
         if @room.save
+            RoomUser.create!(room_id: @room.id, user_id: current_user.id)
           redirect_to :action => "index"
         else
           redirect_to :action => "new"

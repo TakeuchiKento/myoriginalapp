@@ -49,23 +49,27 @@
       <h4>MY LIKE MUSIC<h4>
       </div>
       <div class='mylikemusic2'>
-      好きなアーティスト : <%= t.artist %><br>
-      好きな曲・アルバム<% if t.song.present? %>
-      <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="150" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com<%= t.song %>"></iframe>
+      好きなアーティスト<br>
+      <%= t.artist %><br>
+      好きな曲・アルバム
+      <br><% if t.song.present? %><iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="150" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com<%= t.song %>"></iframe>
       <% end %>
     <small><ul><li><%= link_to "編集する", edit_post_path(t.id) %></li></ul></small>
     </div>
     </div>
   <% end %>
 </div>
-
+<div class="top100">
+<iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450px" style="width:120%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/playlist/%E3%83%88%E3%83%83%E3%83%97100-%E6%97%A5%E6%9C%AC/pl.043a2c9876114d95a4659988497567be"></iframe>
+</div>
+<under_index>
 <h6>好きなアーティストから検索</h6>
 <div class="search_form">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <%= form_with url: search_path, local: true, method: :get do |f| %>
     <%= f.select :search, ([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
-    <%= f.text_field :word,:placeholder => "アーティスト名を入力" %>
-    <%= f.submit "検索", class: "btn btn-primary" %>
+    <%= f.text_field :word,:placeholder => "アーティスト名を入力",class:"nyuuryoku" %>
+    <%= f.submit "検索", class: "kensaku" %>
     <% end %>
 </div>
 
@@ -75,7 +79,8 @@
 <%= link_to "フォロー一覧",follows_user_path(current_user.id)  %>
 <%= link_to "フォロワー一覧",followers_user_path(current_user.id)  %></li><h6>
 <ul>
-
+</div>
+</under_index>
 </div>
 </body>
 </html>

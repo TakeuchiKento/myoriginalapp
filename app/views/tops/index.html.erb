@@ -13,7 +13,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-
+<%= stylesheet_link_tag 'tops', :media => "all"%>
 <body>
 <header>
     <h1>MUSIC LIKE</h1>
@@ -24,33 +24,45 @@
     </ul>
     </div>
     </header>
+
+<div class="flowing">
+<div class="repeat-fadein-out">
+MUSIC LIKE
+</div>
+</div>
+
     <ul class="sample">
     <li></li>
     <li></li>
     <li></li>
     <li></li>
     </ul>
+    
     <div class="topmessage">
-    <h1>「好き」を共有する</h1>
+    
+    <p class="border fadein txt01">「好き」を共有する</p>
     <br>
     <br>
-    <h4>通勤通学をしながら<br>
-    作業をしながら<br>
-    帰りながら<br>
-    ・・・<br>
-    誰のそばにも音楽があります<br>
-    自分の「好き」を共有しませんか<br>
-    誰かの「好き」を知ってみませんか<br>
-    そんな「好き」の共有のために<br>
-    MUSICLIKEを始めてみませんか</h4>
+    <h4>
+    <p class="fadein txt01">通勤通学をしながら<br></p>
+    <p class="fadein txt01">作業をしながら<br></p>
+    <p class="fadein txt01">帰りながら<br></p>
+    <p class="fadein txt01">・・・<br></p>
+    <p class="fadein txt01">誰のそばにも音楽があります<br></p>
+    <p class="fadein txt01">自分の「好き」を共有しませんか<br></p>
+    <p class="fadein txt01">誰かの「好き」を知ってみませんか<br></p>
+    <p class="fadein txt01">そんな「好き」の共有のために<br></p>
+    <p class="fadein txt01">MUSICLIKEを始めてみませんか</h4></p>
     <ul>
         <li><h2><%= link_to "ログイン", posts_path %></li>
         <li><h2><%= link_to "新規登録", new_user_registration_path %></li>
     </ul>
+    </p>
     </div>
     <main>
     <%= yield %>
     </main>
+
 </header>
 </body>
 </html>
